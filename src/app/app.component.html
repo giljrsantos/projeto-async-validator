@@ -1,0 +1,73 @@
+<h1>Cadastro</h1>
+<form 
+  class="grid"
+  [formGroup]="formGroup"
+  (ngSubmit)="postar()">
+
+    <!-- USERNAME -->
+    <div class="col-12 md:col-6">
+
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <input
+          autofocus
+          formControlName="username"
+          pInputText
+          placeholder="Cadastre um username"
+          type="text" />
+      </div>
+
+        <div 
+          class="p-error"
+          *ngIf="username && username.errors && username.invalid && (username.dirty || username.touched)">
+          <div *ngIf="username.errors['required']">
+            Username é obrigatório
+          </div>
+          <div *ngIf="username.errors['usernamejaexiste']">
+            <strong>{{ username.errors["usernamejaexiste"]}}</strong>
+            não está disponível
+          </div>
+          <div *ngIf="username.errors['pattern']">
+            Este campo deve conter apenas letras
+            minúsculas de 3 a 10 caracteres.
+          </div>  
+        </div>      
+    </div>
+
+    <!-- EMAIL -->
+    <div class="col-12 md:col-6">
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-at"></i>
+        </span>
+        <input
+          formControlName="email"
+          pInputText
+          placeholder="Informe seu e-mail"
+          type="email" />
+      </div>
+        
+      <!-- EMAIL: MENSAGENS DE VALIDAÇÃO -->
+      <div
+        class="p-error"
+        *ngIf="
+          email &&
+          email.errors &&
+          email.invalid &&
+          (email.dirty || email.touched)
+        ">
+        Por favor, informe um e-mail válido
+      </div>
+    </div>
+
+    <div class="col-12">
+      <button
+        [disabled]="formGroup.invalid || formGroup.pending"
+        label="Cadastrar"
+        pButton
+        type="submit"></button>
+    </div>
+
+</form>
