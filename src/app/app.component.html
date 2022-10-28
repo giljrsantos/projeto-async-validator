@@ -27,7 +27,7 @@
           </div>
           <div *ngIf="username.errors['usernamejaexiste']">
             <strong>{{ username.errors["usernamejaexiste"]}}</strong>
-            não está disponível
+            não está disponível, já exite no cadastro
           </div>
           <div *ngIf="username.errors['pattern']">
             Este campo deve conter apenas letras

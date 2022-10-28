@@ -4,6 +4,8 @@ Antes de submeter os dados para o servidor, é importante garantir que todos os 
 
 Nesta aplicação será abordado como podemos realizar validações assíncronas. Por exemplo, o usuário está preenchendo um formulário de cadastro, um dos campos é o username. Ao preencher este campo a aplicação deve validar se o username está disponível para uso através da consulta à uma API.
 
+Foi criado um array com vários nomes, e assim que pessoa vai digitando os nomes, automaticamente o sistema já vai verificando se aquele nome esta disponível. Ou seja, se o nome não exister no array, a aplicação permite submiter o formulário após preencher o campo e-mail
+
 Para realizar esta tarefa, iremos explorar um pouco do Reactive Forms e o `AsyncValidatorFn` do Angular.
 
 
@@ -26,18 +28,13 @@ Utilizei o `"type": "module"` para indicar que o formato dos módulos será trat
     vá até a aba Developer e selecione a opção `Disable Cross-Origin Restrictions`
 
 ## ScreenShots da Aplicação funcionando
-<p align="center">
-<img src="./src/assets/screen-1.png" width="1800" alt="Home">
-</p>
+Verifique que o nome que esta consolado no console do navegador, é um nome que não existse no array. E o nome gilberto que a pessoa tentou inserir, esse nome existe no array.
 
-## 
-<p align="center">
-<img src="./src/assets/screen-2.png" width="1800" alt="Home">
-</p>
+Sendo assim mesmo com o campo e-mail preenchido o formulário não habilita o botão para `[CADASTRAR]`.
 
-## 
+E também, aparece uma mensagem informando, que o nome não esta disponível, já existe no cadastro.
 <p align="center">
-<img src="./src/assets/screen-3.png" width="1800" alt="Home">
+<img src="./src/assets/screen-4.png" width="1800" alt="Home">
 </p>
 
 
